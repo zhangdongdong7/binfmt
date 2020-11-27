@@ -6,7 +6,7 @@ on:
       - master
     paths:
       # - 'opencv-debian.Dockerfile'
-      - './binfm/Dockerfile'
+      - 'qemu.Dockerfile'
 
 
 jobs:
@@ -26,4 +26,4 @@ jobs:
           dockerHubUser: ${{ secrets.DOCKER_USERNAME }}
           dockerHubPassword: ${{ secrets.DOCKER_PASSWORD }}
           platform: linux/arm64
-          dockerFile: ./binfm/Dockerfile
+          dockerFile: qemu.Dockerfile
