@@ -12,7 +12,7 @@ on:
 jobs:
   orcale-7-slim:
     runs-on: ubuntu-latest
-    name: builx orcale-7-slim
+    name: builx qemu
     steps:
       # https://github.com/marketplace/actions/customizable-docker-buildx
       - name: Checkout master
