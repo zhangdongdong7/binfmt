@@ -1,0 +1,29 @@
+name: qemu
+
+on:
+  push:
+    branches: 
+      - master
+    paths:
+      # - 'opencv-debian.Dockerfile'
+      - 'binfm/Dockerfile'
+
+
+jobs:
+  orcale-7-slim:
+    runs-on: ubuntu-latest
+    name: builx orcale-7-slim
+    steps:
+      # https://github.com/marketplace/actions/customizable-docker-buildx
+      - name: Checkout master
+        uses: actions/checkout@master
+      - name: Build and publish image
+        uses: ilteoood/docker_buildx@master
+        with:
+          publish: true
+          imageName: doubledong/binfm
+          tag: 7-slim
+          dockerHubUser: ${{ secrets.DOCKER_USERNAME }}
+          dockerHubPassword: ${{ secrets.DOCKER_PASSWORD }}
+          platform: linux/arm64
+          dockerFile: binfm/Dockerfile
